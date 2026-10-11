@@ -1,0 +1,12 @@
+{
+  "candidate": "reference",
+  "seed": 0,
+  "pr_auc": 0.33949989080429077,
+  "roc_auc": 0.7843260765075684,
+  "loss": 0.23458075523376465,
+  "elapsed_seconds": 287.60562985900015,
+  "epochs_completed": 190,
+  "best_checkpoint": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/reference/seed_0/attempt_20261009_180143_224202/checkpoints/epoch=39-step=480.ckpt",
+  "parameter_count": 677562,
+  "output_dir": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/reference/seed_0/attempt_20261009_180143_224202"
+}

@@ -1,0 +1,23 @@
+{
+  "candidate": "aggregation_sum",
+  "mean": 0.36604687571525574,
+  "std": 0.0,
+  "seeds": [
+    0
+  ],
+  "metric": "pr_auc",
+  "checkpoint_metric": "val/pr_auc",
+  "all_candidates_complete": true,
+  "implementation": "DiffPred ChempropMPNNet with its original readout and Adam/ReduceLROnPlateau",
+  "logit_rounding": "preserved",
+  "shared_encoder_parameters": [
+    "activation",
+    "chemprop_aggregation",
+    "chemprop_depth",
+    "chemprop_message_passing",
+    "dropout",
+    "feature_hiddens",
+    "net_type"
+  ],
+  "diffusion_head": "kept from diffusion template; baseline readout is replaced"
+}

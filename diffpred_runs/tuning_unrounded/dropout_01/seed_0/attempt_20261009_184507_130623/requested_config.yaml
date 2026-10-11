@@ -1,0 +1,71 @@
+data:
+  classification: true
+  name: jku_tox21_splits
+  dataset: tox21_jku
+  data_dir: /content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku
+  diffusion_params:
+    diffusion_type: null
+    guidance: 1.0
+    guidance_dropout: 0.2
+    guidance_schedule: cosine
+    refinement_steps: 10
+    sigma_max: 10
+    sigma_min: 0.0001
+  log_transform: false
+  standardize_targets: false
+  symmetric_binary_targets: false
+  use_benchmark: false
+  load_test: false
+experiment:
+  callbacks: []
+  check_val_freq: 10
+  console_out: true
+  debug: false
+  device: cuda
+  ema_decay: 0.99
+  exp_name: jku_dropout_01_seed0
+  monitor_metric: val/pr_auc
+  monitor_mode: max
+  early_stopping: true
+  early_stopping_patience: 15
+  output_dir: /content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/dropout_01/seed_0/attempt_20261009_184507_130623
+  seed: 0
+  tune: true
+  tuning_n_trials: 50
+  save_last_ckpt: false
+  use_ema_on_test: false
+  use_last_ckpt: false
+  wandb_mode: disabled
+model:
+  featurizer: graph
+  hparams:
+    net_type: chemprop
+    chemprop_message_passing: bond
+    chemprop_aggregation: norm
+    chemprop_depth: 3
+    pooling: sum
+    activation: relu
+    dropout: 0.1
+    batch_norm: false
+    hidden_dim: 128
+    num_hiddens: 3
+    output_mlp_type: residual
+    feature_hiddens:
+    - 300
+    cond_config:
+      fusion_gating: false
+      fusion_loc: post-branch
+      fusion_type: none
+      use_timestep_gating: false
+  name: gnn
+  training:
+    loss_weights: true
+    batch_size: 1024
+    shuffle_train: true
+    lr: 0.001
+    num_pred_samples: 50
+    max_epochs: 800
+    weight_decay: 0.0
+    use_scheduler: true
+    lr_schedule_factor: 0.5
+    lr_schedule_patience: 20

@@ -1,0 +1,12 @@
+{
+  "candidate": "aggregation_sum",
+  "seed": 0,
+  "pr_auc": 0.36604687571525574,
+  "roc_auc": 0.7673306465148926,
+  "loss": 0.2360057532787323,
+  "elapsed_seconds": 268.31240383600016,
+  "epochs_completed": 180,
+  "best_checkpoint": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/aggregation_sum/seed_0/attempt_20261009_194945_232089/checkpoints/epoch=29-step=360.ckpt",
+  "parameter_count": 677562,
+  "output_dir": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/aggregation_sum/seed_0/attempt_20261009_194945_232089"
+}

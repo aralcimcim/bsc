@@ -1,0 +1,237 @@
+{
+  "metric": "pr_auc",
+  "candidates": [
+    {
+      "candidate": "aggregation_sum",
+      "mean": 0.36604687571525574,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "weight_decay_00001",
+      "mean": 0.3555126190185547,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "batch_256",
+      "mean": 0.35000157356262207,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "depth_5",
+      "mean": 0.3477451801300049,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "width_512",
+      "mean": 0.3471401631832123,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "dropout_02",
+      "mean": 0.34406352043151855,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "width_256",
+      "mean": 0.34344619512557983,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "readout_layers_4",
+      "mean": 0.339925616979599,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "scheduler_False",
+      "mean": 0.3395947813987732,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "reference",
+      "mean": 0.33949989080429077,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "width_128",
+      "mean": 0.33946165442466736,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "scheduler_factor_01",
+      "mean": 0.33852678537368774,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "readout_layers_2",
+      "mean": 0.33755409717559814,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "dropout_03",
+      "mean": 0.33539414405822754,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "depth_4",
+      "mean": 0.3348206877708435,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "messages_atom",
+      "mean": 0.3326531648635864,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "aggregation_mean",
+      "mean": 0.3320271968841553,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "weight_decay_1e-05",
+      "mean": 0.3292824923992157,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "batch_512",
+      "mean": 0.3265502452850342,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "activation_tanh",
+      "mean": 0.3242133855819702,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "scheduler_patience_10",
+      "mean": 0.3207629323005676,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "lr_0005",
+      "mean": 0.3179292678833008,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "readout_layers_1",
+      "mean": 0.3175884187221527,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "dropout_01",
+      "mean": 0.31717631220817566,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "lr_003",
+      "mean": 0.31586921215057373,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "readout_linear",
+      "mean": 0.3151835799217224,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "depth_2",
+      "mean": 0.3145788908004761,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "activation_silu",
+      "mean": 0.30673545598983765,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    },
+    {
+      "candidate": "lr_0001",
+      "mean": 0.2979048788547516,
+      "std": 0.0,
+      "seeds": [
+        0
+      ]
+    }
+  ]
+}

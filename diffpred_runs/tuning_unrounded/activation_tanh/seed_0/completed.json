@@ -1,0 +1,12 @@
+{
+  "candidate": "activation_tanh",
+  "seed": 0,
+  "pr_auc": 0.3242133855819702,
+  "roc_auc": 0.7322432398796082,
+  "loss": 0.26988837122917175,
+  "elapsed_seconds": 339.426682882,
+  "epochs_completed": 230,
+  "best_checkpoint": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/activation_tanh/seed_0/attempt_20261009_193723_487571/checkpoints/epoch=79-step=960.ckpt",
+  "parameter_count": 677562,
+  "output_dir": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/activation_tanh/seed_0/attempt_20261009_193723_487571"
+}

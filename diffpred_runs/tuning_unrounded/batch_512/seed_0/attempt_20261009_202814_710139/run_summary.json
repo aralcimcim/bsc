@@ -1,0 +1,11 @@
+{
+  "seed": 0,
+  "tuning": true,
+  "epochs_completed": 170,
+  "best_checkpoint": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/batch_512/seed_0/attempt_20261009_202814_710139/checkpoints/epoch=19-step=460.ckpt",
+  "elapsed_seconds": 255.0661950779995,
+  "train_rows": 11759,
+  "validation_rows": 296,
+  "parameter_count": 677562,
+  "baseline_probability_processing": "sigmoid_after_legacy_logit_rounding"
+}

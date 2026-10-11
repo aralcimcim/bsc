@@ -1,0 +1,12 @@
+{
+  "candidate": "messages_atom",
+  "seed": 0,
+  "pr_auc": 0.3326531648635864,
+  "roc_auc": 0.7677366137504578,
+  "loss": 0.24713176488876343,
+  "elapsed_seconds": 266.9218043419987,
+  "epochs_completed": 190,
+  "best_checkpoint": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/messages_atom/seed_0/attempt_20261009_195517_453798/checkpoints/epoch=39-step=480.ckpt",
+  "parameter_count": 677562,
+  "output_dir": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/messages_atom/seed_0/attempt_20261009_195517_453798"
+}

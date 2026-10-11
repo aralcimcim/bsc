@@ -1,0 +1,12 @@
+{
+  "candidate": "weight_decay_00001",
+  "seed": 0,
+  "pr_auc": 0.3555126190185547,
+  "roc_auc": 0.7700586318969727,
+  "loss": 0.24207884073257446,
+  "elapsed_seconds": 321.84256519799965,
+  "epochs_completed": 220,
+  "best_checkpoint": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/weight_decay_00001/seed_0/attempt_20261009_203917_853336/checkpoints/epoch=69-step=840.ckpt",
+  "parameter_count": 677562,
+  "output_dir": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/weight_decay_00001/seed_0/attempt_20261009_203917_853336"
+}

@@ -1,0 +1,11 @@
+{
+  "seed": 0,
+  "tuning": false,
+  "epochs_completed": 240,
+  "best_checkpoint": "/content/drive/MyDrive/AI_thesis/diffpred_runs/retuned_unrounded_5seeds/chemprop_diff/seed_0/checkpoints/epoch=89-step=1080-EMA.ckpt",
+  "elapsed_seconds": 496.5091730739987,
+  "train_rows": 11759,
+  "validation_rows": 296,
+  "parameter_count": 516987,
+  "baseline_probability_processing": null
+}

@@ -1,0 +1,12 @@
+{
+  "candidate": "scheduler_patience_10",
+  "seed": 0,
+  "pr_auc": 0.3207629323005676,
+  "roc_auc": 0.7560800909996033,
+  "loss": 0.29025372862815857,
+  "elapsed_seconds": 310.0068828929998,
+  "epochs_completed": 210,
+  "best_checkpoint": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/scheduler_patience_10/seed_0/attempt_20261009_205113_726180/checkpoints/epoch=59-step=720.ckpt",
+  "parameter_count": 677562,
+  "output_dir": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/scheduler_patience_10/seed_0/attempt_20261009_205113_726180"
+}

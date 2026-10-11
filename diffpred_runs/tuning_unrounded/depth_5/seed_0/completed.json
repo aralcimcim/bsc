@@ -1,0 +1,12 @@
+{
+  "candidate": "depth_5",
+  "seed": 0,
+  "pr_auc": 0.3477451801300049,
+  "roc_auc": 0.7491928339004517,
+  "loss": 0.2519901692867279,
+  "elapsed_seconds": 363.5391256060002,
+  "epochs_completed": 200,
+  "best_checkpoint": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/depth_5/seed_0/attempt_20261009_181946_967159/checkpoints/epoch=49-step=600.ckpt",
+  "parameter_count": 677562,
+  "output_dir": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/depth_5/seed_0/attempt_20261009_181946_967159"
+}

@@ -1,0 +1,2566 @@
+{
+  "version": 2,
+  "implementation": "DiffPred ChempropMPNNet with its original readout and Adam/ReduceLROnPlateau",
+  "candidates": [
+    [
+      "reference",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "depth_2",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 2,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "depth_4",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 4,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "depth_5",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 5,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "width_128",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              128
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "width_256",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              256
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "width_512",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              512
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "dropout_01",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0.1,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "dropout_02",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0.2,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "dropout_03",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0.3,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "readout_layers_1",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 1,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "readout_layers_2",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 2,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "readout_layers_4",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 4,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "readout_linear",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "linear",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "activation_silu",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "silu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "activation_tanh",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "tanh",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "aggregation_mean",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "mean",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "aggregation_sum",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "sum",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "messages_atom",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "atom",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "lr_0001",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.0001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "lr_0005",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.0005,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "lr_003",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.003,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "batch_256",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 256,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "batch_512",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 512,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "weight_decay_1e-05",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 1e-05,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "weight_decay_00001",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0001,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "scheduler_factor_01",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.1,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ],
+    [
+      "scheduler_patience_10",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": true,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 10
+          }
+        }
+      }
+    ],
+    [
+      "scheduler_False",
+      {
+        "data": {
+          "classification": true,
+          "name": "jku_tox21_splits",
+          "dataset": "tox21_jku",
+          "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+          "diffusion_params": {
+            "diffusion_type": null,
+            "guidance": 1.0,
+            "guidance_dropout": 0.2,
+            "guidance_schedule": "cosine",
+            "refinement_steps": 10,
+            "sigma_max": 10,
+            "sigma_min": 0.0001
+          },
+          "log_transform": false,
+          "standardize_targets": false,
+          "symmetric_binary_targets": false,
+          "use_benchmark": false,
+          "load_test": false
+        },
+        "experiment": {
+          "callbacks": [],
+          "check_val_freq": 10,
+          "console_out": true,
+          "debug": false,
+          "device": "cuda",
+          "ema_decay": 0.99,
+          "exp_name": "${data.name}_${data.dataset}_${model.name}",
+          "monitor_metric": "val/pr_auc",
+          "monitor_mode": "max",
+          "early_stopping": true,
+          "early_stopping_patience": 15,
+          "output_dir": "outputs_${experiment.exp_name}",
+          "seed": 0,
+          "tune": true,
+          "tuning_n_trials": 50,
+          "save_last_ckpt": false,
+          "use_ema_on_test": false,
+          "use_last_ckpt": false,
+          "wandb_mode": "disabled"
+        },
+        "model": {
+          "featurizer": "graph",
+          "hparams": {
+            "net_type": "chemprop",
+            "chemprop_message_passing": "bond",
+            "chemprop_aggregation": "norm",
+            "chemprop_depth": 3,
+            "pooling": "sum",
+            "activation": "relu",
+            "dropout": 0,
+            "batch_norm": false,
+            "hidden_dim": 128,
+            "num_hiddens": 3,
+            "output_mlp_type": "residual",
+            "feature_hiddens": [
+              300
+            ],
+            "cond_config": {
+              "fusion_gating": false,
+              "fusion_loc": "post-branch",
+              "fusion_type": "none",
+              "use_timestep_gating": false
+            }
+          },
+          "name": "gnn",
+          "training": {
+            "loss_weights": true,
+            "batch_size": 1024,
+            "shuffle_train": true,
+            "lr": 0.001,
+            "num_pred_samples": 50,
+            "max_epochs": 800,
+            "weight_decay": 0.0,
+            "use_scheduler": false,
+            "lr_schedule_factor": 0.5,
+            "lr_schedule_patience": 20
+          }
+        }
+      }
+    ]
+  ],
+  "seeds": [
+    0
+  ],
+  "selection_metric": "pr_auc",
+  "diffusion_template": {
+    "data": {
+      "classification": true,
+      "name": "jku_tox21_splits",
+      "dataset": "tox21_jku",
+      "data_dir": "/content/bac_thesis/diffpred_MODDED/diffpred/data/tox21_jku",
+      "diffusion_params": {
+        "diffusion_type": "edm",
+        "guidance": 1.0,
+        "guidance_dropout": 0.2,
+        "guidance_schedule": "cosine",
+        "refinement_steps": 50,
+        "sigma_max": 10,
+        "sigma_min": 0.0001,
+        "self_cond_prob": 0.5
+      },
+      "log_transform": false,
+      "standardize_targets": true,
+      "symmetric_binary_targets": true,
+      "use_benchmark": false
+    },
+    "experiment": {
+      "callbacks": [],
+      "check_val_freq": 10,
+      "console_out": true,
+      "debug": false,
+      "device": null,
+      "ema_decay": 0.99,
+      "exp_name": "${data.name}_${data.dataset}_${model.name}",
+      "monitor_metric": "val/pr_auc",
+      "monitor_mode": "max",
+      "early_stopping": true,
+      "early_stopping_patience": 15,
+      "output_dir": "outputs_${experiment.exp_name}",
+      "seed": 0,
+      "tune": false,
+      "tuning_n_trials": 50,
+      "save_last_ckpt": false,
+      "use_ema_on_test": true,
+      "use_last_ckpt": false,
+      "wandb_mode": null
+    },
+    "model": {
+      "featurizer": "graph",
+      "hparams": {
+        "net_type": "chemprop",
+        "chemprop_message_passing": "bond",
+        "chemprop_aggregation": "norm",
+        "chemprop_depth": 3,
+        "arch_type": "baseline",
+        "pooling": "sum",
+        "activation": "relu",
+        "dropout": 0,
+        "batch_norm": false,
+        "hidden_dim": 128,
+        "embedding_dim": 128,
+        "num_hiddens": 3,
+        "output_mlp_type": "linear",
+        "feature_hiddens": [
+          300
+        ],
+        "cond_config": {
+          "fusion_gating": false,
+          "fusion_loc": "pre-branch",
+          "fusion_type": "add",
+          "use_timestep_gating": true
+        }
+      },
+      "name": "gnn",
+      "training": {
+        "batch_size": 1024,
+        "loss_weights": true,
+        "shuffle_train": true,
+        "lr": 0.001,
+        "num_pred_samples": 200,
+        "max_epochs": 800
+      }
+    }
+  },
+  "data": {
+    "train": {
+      "sha256": "fbc77a7841faf04d5ee61295cc283799088c6910ee385f1d698a1cebc25ab920",
+      "rows_before_filtering": 11764,
+      "columns": [
+        "smiles",
+        "NR-AhR",
+        "NR-AR",
+        "NR-AR-LBD",
+        "NR-Aromatase",
+        "NR-ER",
+        "NR-ER-LBD",
+        "NR-PPAR-gamma",
+        "SR-ARE",
+        "SR-ATAD5",
+        "SR-HSE",
+        "SR-MMP",
+        "SR-p53"
+      ]
+    },
+    "valid": {
+      "sha256": "5776ed31f39f991fabe0c7059344ceb89567530a184371a622885aad10b677ed",
+      "rows_before_filtering": 296,
+      "columns": [
+        "smiles",
+        "NR-AhR",
+        "NR-AR",
+        "NR-AR-LBD",
+        "NR-Aromatase",
+        "NR-ER",
+        "NR-ER-LBD",
+        "NR-PPAR-gamma",
+        "SR-ARE",
+        "SR-ATAD5",
+        "SR-HSE",
+        "SR-MMP",
+        "SR-p53"
+      ]
+    }
+  },
+  "code_sha256": "8319a360ca875b0b841bc4e015578386da8a021b8aeabf17bd20499c63cac427"
+}

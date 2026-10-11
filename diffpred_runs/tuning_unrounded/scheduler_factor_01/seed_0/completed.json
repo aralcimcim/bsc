@@ -1,0 +1,12 @@
+{
+  "candidate": "scheduler_factor_01",
+  "seed": 0,
+  "pr_auc": 0.33852678537368774,
+  "roc_auc": 0.7408859133720398,
+  "loss": 0.2325213998556137,
+  "elapsed_seconds": 265.70329907000087,
+  "epochs_completed": 180,
+  "best_checkpoint": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/scheduler_factor_01/seed_0/attempt_20261009_204544_138614/checkpoints/epoch=29-step=360.ckpt",
+  "parameter_count": 677562,
+  "output_dir": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/scheduler_factor_01/seed_0/attempt_20261009_204544_138614"
+}

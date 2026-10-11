@@ -1,0 +1,12 @@
+{
+  "candidate": "activation_silu",
+  "seed": 0,
+  "pr_auc": 0.30673545598983765,
+  "roc_auc": 0.7558059692382812,
+  "loss": 0.2428402155637741,
+  "elapsed_seconds": 295.6286480159997,
+  "epochs_completed": 200,
+  "best_checkpoint": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/activation_silu/seed_0/attempt_20261009_193123_508377/checkpoints/epoch=49-step=600.ckpt",
+  "parameter_count": 677562,
+  "output_dir": "/content/drive/MyDrive/AI_thesis/diffpred_runs/tuning_unrounded/activation_silu/seed_0/attempt_20261009_193123_508377"
+}
