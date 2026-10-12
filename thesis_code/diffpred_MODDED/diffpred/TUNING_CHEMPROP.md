@@ -15,7 +15,7 @@ logit rounding are unchanged. The JKU Hugging Face data supplies the training an
   --output-root /content/drive/MyDrive/AI_thesis/diffpred_runs/diffpred_manual_v1
 ```
 
-There are **29 explicit configurations**, including the reference, in
+There are **29 configurations**, including the reference, in
 `exp_configs/tox21/chemprop_manual_candidates.yaml`. 
 Each candidate trains from scratch and changes one parameter relative to the reference.
 
