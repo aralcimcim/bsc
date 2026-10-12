@@ -54,7 +54,7 @@ Adam optimizer with its original defaults, baseline scheduler
 minimum LR 1e-4, maximum 800 epochs, validation every 10 epochs, early-stop patience 15
 validation checks (150 epochs without AP (PR-AUC) improvement), and seed zero. 
 Checkpoint selection and candidate ranking both use validation AP (PR-AUC). 
-The plateau scheduler continues to monitor validation loss, as in DiffPred.
+The plateau scheduler continues to monitor validation loss, same as in DiffPred.
 
 Use `--only reference lr_0005 dropout_01` to run a subset. Replace `--seed 0`
 with e.g. `--seeds 0 42 21` to rank means over multiple seeds.
@@ -70,10 +70,10 @@ and `best_params_diff.yaml`. Selection remains provisional until all candidates
 finish. Exact ties use candidate order.
 
 The diffusion export copies the selected molecular encoder settings, batch size,
-LR, weight decay and scheduler controls. It retains the template's conditioned
+LR, weight decay and scheduler controls. It keeps the conditioned
 prediction layer, target standardization, loss weights, EMA and sampling configuration.
 Baseline readout parameters are not equivalent to the conditioned layer's
-parameters;.
+parameters.
 
 After tuning, use the exported YAMLs in 5 fresh paired-seed runs:
 
