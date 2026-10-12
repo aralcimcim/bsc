@@ -1,0 +1,91 @@
+# Explicit manual experiments on DiffPred Chemprop; every entry inherits chemprop.yaml.
+# No JKU model settings. Add combinations explicitly; this is not a Cartesian product.
+candidates:
+- name: reference
+- name: depth_2
+  hparams:
+    chemprop_depth: 2
+- name: depth_4
+  hparams:
+    chemprop_depth: 4
+- name: depth_5
+  hparams:
+    chemprop_depth: 5
+- name: width_128
+  hparams:
+    feature_hiddens:
+    - 128
+- name: width_256
+  hparams:
+    feature_hiddens:
+    - 256
+- name: width_512
+  hparams:
+    feature_hiddens:
+    - 512
+- name: dropout_01
+  hparams:
+    dropout: 0.1
+- name: dropout_02
+  hparams:
+    dropout: 0.2
+- name: dropout_03
+  hparams:
+    dropout: 0.3
+- name: readout_layers_1
+  hparams:
+    num_hiddens: 1
+- name: readout_layers_2
+  hparams:
+    num_hiddens: 2
+- name: readout_layers_4
+  hparams:
+    num_hiddens: 4
+- name: readout_linear
+  hparams:
+    output_mlp_type: linear
+- name: activation_silu
+  hparams:
+    activation: silu
+- name: activation_tanh
+  hparams:
+    activation: tanh
+- name: aggregation_mean
+  hparams:
+    chemprop_aggregation: mean
+- name: aggregation_sum
+  hparams:
+    chemprop_aggregation: sum
+- name: messages_atom
+  hparams:
+    chemprop_message_passing: atom
+- name: lr_0001
+  training:
+    lr: 0.0001
+- name: lr_0005
+  training:
+    lr: 0.0005
+- name: lr_003
+  training:
+    lr: 0.003
+- name: batch_256
+  training:
+    batch_size: 256
+- name: batch_512
+  training:
+    batch_size: 512
+- name: weight_decay_1e-05
+  training:
+    weight_decay: 1.0e-05
+- name: weight_decay_00001
+  training:
+    weight_decay: 0.0001
+- name: scheduler_factor_01
+  training:
+    lr_schedule_factor: 0.1
+- name: scheduler_patience_10
+  training:
+    lr_schedule_patience: 10
+- name: scheduler_False
+  training:
+    use_scheduler: false

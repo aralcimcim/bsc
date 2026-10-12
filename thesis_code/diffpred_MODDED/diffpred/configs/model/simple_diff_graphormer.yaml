@@ -1,0 +1,33 @@
+name: graphormer_diff
+featurizer: graph
+hparams:
+  net_type: graphormer
+  graphormer_num_layers: 3
+  graphormer_num_heads: 8
+  graphormer_ffn_embed_dim: 128
+  graphormer_edge_type: multi_hop
+  graphormer_multi_hop_max_dist: 5
+  arch_type: baseline # baseline diffusion
+  pooling: sum
+  activation: silu
+  dropout: 0
+  batch_norm: False
+  hidden_dim: 128
+  embedding_dim: 128
+  num_hiddens: 3
+  self_conditioning: True
+  feature_hiddens:
+    - 128
+  cond_config:
+    fusion_gating: False
+    fusion_loc: post-branch
+    fusion_type: none
+    use_timestep_gating: False
+training:
+  batch_size: 512
+  shuffle_train: True
+  lr: 2e-4
+  use_scheduler: True
+  batched_sampling: True
+  num_pred_samples: 200
+  max_epochs: 1500
